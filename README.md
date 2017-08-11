@@ -11,10 +11,12 @@ These instructions will help you to use and change the behavior of the LED on yo
 ```
 Arduino IDE > 1.5.8
 ```
+```
 Adafruit NeoPixel Librairy
 ```
+```
 Add ATTINY85 board to Arduino IDE
-````````
+```
 
 ### Installing
 
