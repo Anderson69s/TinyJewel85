@@ -1,0 +1,13 @@
+### Module positions - created on 08/10/17 10:12:03 ###
+### Printed by Pcbnew version kicad 4.0.6
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val       Package                                     PosX       PosY       Rot  Side
+C1                  SM0402                                  140.0000   -75.7500   90.0000  top
+C2                  SM0402                                  135.5000   -77.0000   90.0000  top
+C3                  SM0402                                  153.7500   -76.5000    0.0000  top
+IC1                 SOIC8-W                                 145.7500   -91.2500   90.0000  top
+          P1        JST_PH_S2B-PH-SM4-TB_02x2.00mm_Angled   145.7500   -99.7500    0.0000  top
+C4                  SM0402                                  139.7500   -95.0000  270.0000  top
+SW                  SWITCH_CMS                              157.5000   -91.7500    0.0000  top
+## End
