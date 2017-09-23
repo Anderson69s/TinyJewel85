@@ -12,14 +12,11 @@ Many thank's to :
 #endif
 
 // Pattern types supported:
-enum  pattern {
-  NONE, RAINBOW_CYCLE, THEATER_CHASE, COLOR_WIPE, SCANNER, FADE
-};
+enum  pattern { NONE, RAINBOW_CYCLE, THEATER_CHASE };
 // Patern directions supported:
-enum  direction {
-  FORWARD, REVERSE
-};
+enum  direction { FORWARD, REVERSE };
 float potard;// declare float to store potientiometer value
+
 // NeoPattern Class - derived from the Adafruit_NeoPixel class
 class NeoPatterns :
   public Adafruit_NeoPixel
@@ -60,15 +57,6 @@ class NeoPatterns :
             break;
           case THEATER_CHASE:
             TheaterChaseUpdate();
-            break;
-          case COLOR_WIPE:
-            ColorWipeUpdate();
-            break;
-          case SCANNER:
-            ScannerUpdate();
-            break;
-          case FADE:
-            FadeUpdate();
             break;
           default:
             break;
@@ -172,83 +160,6 @@ class NeoPatterns :
       Increment();
     }
 
-    // Initialize for a ColorWipe
-    void ColorWipe(uint32_t color, uint8_t interval, direction dir = FORWARD)
-    {
-      ActivePattern = COLOR_WIPE;
-      Interval = interval;
-      TotalSteps = numPixels();
-      Color1 = color;
-      Index = 0;
-      Direction = dir;
-    }
-
-    // Update the Color Wipe Pattern
-    void ColorWipeUpdate()
-    {
-      setPixelColor(Index, Color1);
-      show();
-      Increment();
-    }
-
-    // Initialize for a SCANNNER
-    void Scanner(uint32_t color1, uint8_t interval)
-    {
-      ActivePattern = SCANNER;
-      Interval = interval;
-      TotalSteps = (numPixels() - 1) * 2;
-      Color1 = color1;
-      Index = 0;
-    }
-
-    // Update the Scanner Pattern
-    void ScannerUpdate()
-    {
-      for (int i = 0; i < numPixels(); i++)
-      {
-        if (i == Index)  // Scan Pixel to the right
-        {
-          setPixelColor(i, Color1);
-        }
-        else if (i == TotalSteps - Index) // Scan Pixel to the left
-        {
-          setPixelColor(i, Color1);
-        }
-        else // Fading tail
-        {
-          setPixelColor(i, DimColor(getPixelColor(i)));
-        }
-      }
-      show();
-      Increment();
-    }
-
-    // Initialize for a Fade
-    void Fade(uint32_t color1, uint32_t color2, uint16_t steps, uint8_t interval, direction dir = FORWARD)
-    {
-      ActivePattern = FADE;
-      Interval = interval;
-      TotalSteps = steps;
-      Color1 = color1;
-      Color2 = color2;
-      Index = 0;
-      Direction = dir;
-    }
-
-    // Update the Fade Pattern
-    void FadeUpdate()
-    {
-      // Calculate linear interpolation between Color1 and Color2
-      // Optimise order of operations to minimize truncation error
-      uint8_t red = ((Red(Color1) * (TotalSteps - Index)) + (Red(Color2) * Index)) / TotalSteps;
-      uint8_t green = ((Green(Color1) * (TotalSteps - Index)) + (Green(Color2) * Index)) / TotalSteps;
-      uint8_t blue = ((Blue(Color1) * (TotalSteps - Index)) + (Blue(Color2) * Index)) / TotalSteps;
-
-      ColorSet(Color(red, green, blue));
-      show();
-      Increment();
-    }
-
     // Calculate 50% dimmed version of a color (used by ScannerUpdate)
     uint32_t DimColor(uint32_t color)
     {
@@ -330,8 +241,8 @@ void setup()
 #endif
   pinMode(3, INPUT);//pull_up the button
   digitalWrite(3, HIGH );//set D3 to HIGH
-  float potard =  0.05;// value brightness ( between 0 - 1)
-  // Initialize all the pixelStrips
+  potard =  0.05;// value brightness ( between 0 - 1)
+  // Initialize the LED
   Ring1.begin();
   Ring1.ActivePattern = NONE;
   Ring1.ColorSet(Ring1.Color(0, 0, 0, 255 * potard));
@@ -341,7 +252,7 @@ void setup()
 void loop()
 {
   Ring1.Update();  // Update the rings.
-  int b = checkButton();
+  int b = checkButton();// Check Button for event and go to the event
   if (b == 1) clickEvent();
   if (b == 2) doubleClickEvent();
   if (b == 3) holdEvent();
@@ -350,135 +261,69 @@ void loop()
 
 void clickEvent() {// Change animation
   showType++;
-  if (showType > 22)
+  if (showType > 9)
     showType = 1;
   startShow(showType);
 }
-void doubleClickEvent() {//Change to Mininum Luminosity
+void doubleClickEvent() { //Change to Mininum Luminosity
   potard =  0.05;
   startShow(showType);
 }
-void holdEvent() {//Change to Medium Luminosity
+void holdEvent() { //Change to Medium Luminosity
   potard =  0.35;
   startShow(showType);
 }
-void longHoldEvent() {//Change to Maximum Luminosity
+void longHoldEvent() { //Change to Maximum Luminosity
   potard =  1;
   startShow(showType);
 }
 
-void startShow(int i) {//Chose between the animation
+void startShow(int i) { //Chose between the animation
   switch (i) {
     case 1:
       //WHITE
       Ring1.ActivePattern = NONE;
       Ring1.ColorSet(Ring1.Color(0, 0, 0, 255 * potard));
-      //Ring1.ColorSet(Ring1.Color(0, 0, 0, 255 * potard));
       break;
     case 2:
       //RAINBOWCYCLE
       Ring1.ActivePattern = NONE;
-      Ring1.RainbowCycle(30);
+      Ring1.RainbowCycle(10);
       break;
     case 3:
-      //RED
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(255 * potard, 0, 0, 0));
-      break;
-    case 4:
-      //GREEN
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(0, 255 * potard, 0, 0));
-      break;
-    case 5:
-      //BLUE
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(0, 0, 255 * potard, 0));
-      break;
-    case 6:
-      //YELLOW
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(255 * potard, 255 * potard, 0, 0));
-      break;
-    case 7:
-      //PURPLE
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(255 * potard, 0, 255 * potard, 0));
-      break;
-    case 8:
-      //CYAN
-      Ring1.ActivePattern = NONE;
-      Ring1.ColorSet(Ring1.Color(0, 255 * potard, 255 * potard, 0));
-      break;
-    case 9:
       //THEATER CHASE WHITE
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(0, 0, 0, 255 * potard), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 10:
+    case 4:
       //THEATER CHASE RED
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(255 * potard, 0, 0, 0), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 11:
+    case 5:
       //THEATER CHASE GREEN
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(0, 255 * potard, 0, 0), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 12:
+    case 6:
       //THEATER CHASE BLUE
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(0, 0, 255 * potard, 0), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 13:
+    case 7:
       //THEATER CHASE YELLOW
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(255 * potard, 255 * potard, 0, 0), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 14:
+    case 8:
       //THEATER CHASE PURPLE
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(255 * potard, 0, 255 * potard, 0), Ring1.Color(0, 0, 0, 0), 250);
       break;
-    case 15:
+    case 9:
       //THEATER CHASE CYAN
       Ring1.ActivePattern = NONE;
       Ring1.TheaterChase(Ring1.Color(0, 255 * potard, 255 * potard, 0), Ring1.Color(0, 0, 0, 0), 250);
-      break;
-    case 16:
-      //SCANNER WHITE
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(0, 0, 0, 255 * potard), 500);
-      break;
-    case 17:
-      //SCANNER RED
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(255 * potard, 0, 0, 0), 500);
-      break;
-    case 18:
-      //SCANNER GREEN
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(0, 255 * potard, 0, 0), 500);
-      break;
-    case 19:
-      //SCANNER BLUE
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(0, 0, 255 * potard, 0), 500);
-      break;
-    case 20:
-      //SCANNER YELLOW
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(255 * potard, 255 * potard, 0, 0), 500);
-      break;
-    case 21:
-      //SCANNER PURPLE
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(255 * potard, 0, 255 * potard, 0), 500);
-      break;
-    case 22:
-      //SCANNER CYAN
-      Ring1.ActivePattern = NONE;
-      Ring1.Scanner(Ring1.Color(0, 255 * potard, 255 * potard, 0), 500);
       break;
   }
 }

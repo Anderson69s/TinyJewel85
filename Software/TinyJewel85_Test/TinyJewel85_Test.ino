@@ -328,7 +328,7 @@ void loop()
 }
 void clickEvent() {// Change animation
   showType++;
-  if (showType > 9)
+  if (showType > 7)
     showType = 0;
   startShow(showType);
 }
@@ -364,8 +364,8 @@ void startShow(int i) { //Chose between the animation
       break;
     case 3:
       Ring1.TotalSteps = 10;
-      Ring1.Color1 = Ring1.Color(0, 255 * potard, 0);
-      Ring1.Interval = 250;
+      Ring1.Color1 = Ring1.Color(255 * potard, 0, 255 * potard, 0);
+      Ring1.Interval = 500;
       Ring1.ActivePattern = FADE;
       break;
     case 4:
@@ -386,28 +386,14 @@ void startShow(int i) { //Chose between the animation
       Ring1.TotalSteps = 5;
       Ring1.Interval = 25;
       Ring1.Color2 = Ring1.Color(0, 0, 0, 0);
-      Ring1.Color1 = Ring1.Color(0, 255 * potard, 255 * potard, 0);
+      Ring1.Color1 = Ring1.Color(0, 255 * potard, 0, 0);
       Ring1.ActivePattern = THEATER_CHASE;
       break;
     case 7:
       Ring1.TotalSteps = 5;
       Ring1.Interval = 250;
       Ring1.Color2 = Ring1.Color(0, 0, 0, 0);
-      Ring1.Color1 = Ring1.Color(255 * potard, 0, 255 * potard, 0);
-      Ring1.ActivePattern = THEATER_CHASE;
-      break;
-    case 8:
-      Ring1.TotalSteps = 5;
-      Ring1.Interval = 25;
-      Ring1.Color2 = Ring1.Color(0, 0, 0, 0);
-      Ring1.Color1 = Ring1.Color(255 * potard, 255 * potard, 0, 0);
-      Ring1.ActivePattern = THEATER_CHASE;
-      break;
-    case 9:
-      Ring1.TotalSteps = 5;
-      Ring1.Interval = 250;
-      Ring1.Color2 = Ring1.Color(0, 0, 0, 0);
-      Ring1.Color1 = Ring1.Color(0, 0, 0, 255 * potard);
+      Ring1.Color1 = Ring1.Color(255 * potard, 0, 0, 0);
       Ring1.ActivePattern = THEATER_CHASE;
       break;
   }

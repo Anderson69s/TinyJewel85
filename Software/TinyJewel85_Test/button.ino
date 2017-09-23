@@ -4,10 +4,10 @@
 //  MULTI-CLICK:  One Button, Multiple Events
 
 // Button timing variables
-int debounce = 20;          // ms debounce period to prevent flickering when pressing or releasing the button
-int DCgap = 250;            // max ms between clicks for a double click event
-int holdTime = 1000;        // ms hold period: how long to wait for press+hold event
-int longHoldTime = 3000;    // ms long hold period: how long to wait for press+hold event
+int debounce = 30;          // ms debounce period to prevent flickering when pressing or releasing the button
+int DCgap = 150;            // max ms between clicks for a double click event
+int holdTime = 500;        // ms hold period: how long to wait for press+hold event
+int longHoldTime = 900;    // ms long hold period: how long to wait for press+hold event
 
 // Button variables
 boolean buttonVal = HIGH;   // value read from button
