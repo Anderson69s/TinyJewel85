@@ -133,6 +133,36 @@
     (add_net "Net-(P1-Pad1)")
   )
 
+  (module domotab:Switch_DPDT (layer F.Cu) (tedit 59365DC8) (tstamp 59338D12)
+    (at 134.5 92.25 180)
+    (path /5931334F)
+    (fp_text reference SW2 (at -0.149519 -1.241025 180) (layer F.SilkS)
+      (effects (font (size 0.7 0.7) (thickness 0.11)))
+    )
+    (fp_text value "OFF // ON" (at 0.25 -4.75 180) (layer F.SilkS)
+      (effects (font (size 0.7 0.7) (thickness 0.11)))
+    )
+    (fp_line (start -4 -2) (end 4 -2) (layer F.SilkS) (width 0.22098))
+    (fp_line (start 4 -2) (end 4 2) (layer F.SilkS) (width 0.22098))
+    (fp_line (start 4 2) (end -4 2) (layer F.SilkS) (width 0.22098))
+    (fp_line (start -4 2) (end -4 -2) (layer F.SilkS) (width 0.22098))
+    (pad "" np_thru_hole circle (at 1.5 0 180) (size 0.85 0.85) (drill 0.85) (layers *.Cu *.Mask F.SilkS))
+    (pad "" np_thru_hole circle (at -1.5 0 180) (size 0.85 0.85) (drill 0.85) (layers *.Cu *.Mask F.SilkS))
+    (pad 1 smd rect (at -2.5 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask)
+      (net 8 +3V3))
+    (pad 2 smd rect (at 0 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask)
+      (net 12 "Net-(P1-Pad1)"))
+    (pad 3 smd rect (at 2.5 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
+    (pad 4 smd rect (at -2.5 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
+    (pad 5 smd rect (at 0 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
+    (pad 6 smd rect (at 2.5 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Buttons_Switches_SMD.3dshapes/SW_CuK_JS202011SCQN_DPDT_Straight.wrl
+      (at (xyz -0.25 0.16 -0.105))
+      (scale (xyz 0.1 0.1 0.1))
+      (rotate (xyz 0 0 0))
+    )
+  )
+
   (module domotab:SOIC8-W (layer F.Cu) (tedit 59365CF0) (tstamp 56BE10C4)
     (at 145.75 91.25 90)
     (tags SOIC)
@@ -221,7 +251,7 @@
       (net 8 +3V3))
     (pad 2 smd rect (at 0.44958 0 90) (size 0.39878 0.59944) (layers F.Cu F.Paste F.Mask)
       (net 4 GND))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
       (at (xyz 0 0 0.002))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -249,7 +279,7 @@
       (net 8 +3V3))
     (pad 2 smd rect (at 0.44958 0 90) (size 0.39878 0.59944) (layers F.Cu F.Paste F.Mask)
       (net 4 GND))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
       (at (xyz 0 0 0.002))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -277,7 +307,7 @@
       (net 8 +3V3))
     (pad 2 smd rect (at 0.44958 0) (size 0.39878 0.59944) (layers F.Cu F.Paste F.Mask)
       (net 4 GND))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
       (at (xyz 0 0 0.002))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -306,7 +336,7 @@
       (net 10 "Net-(D1-Pad4)"))
     (pad 1 smd rect (at -2.75 -1.65 180) (size 1.5 0.9) (layers F.Cu F.Paste F.Mask)
       (net 8 +3V3))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.4 0.4 0.4))
       (rotate (xyz 0 0 180))
@@ -335,7 +365,7 @@
       (net 11 "Net-(D2-Pad4)"))
     (pad 1 smd rect (at -2.75 -1.65 180) (size 1.5 0.9) (layers F.Cu F.Paste F.Mask)
       (net 8 +3V3))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.4 0.4 0.4))
       (rotate (xyz 0 0 180))
@@ -364,7 +394,7 @@
       (net 3 PB4))
     (pad 1 smd rect (at -2.75 -1.65 180) (size 1.5 0.9) (layers F.Cu F.Paste F.Mask)
       (net 8 +3V3))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/LEDs.3dshapes/LED_WS2812B-PLCC4.wrl
       (at (xyz 0 0 0))
       (scale (xyz 0.4 0.4 0.4))
       (rotate (xyz 0 0 180))
@@ -499,39 +529,9 @@
       (net 4 GND))
     (pad "" smd rect (at -3.35 2.875) (size 1.5 3.4) (layers F.Cu F.Paste F.Mask))
     (pad "" smd rect (at 3.35 2.875) (size 1.5 3.4) (layers F.Cu F.Paste F.Mask))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Connectors_JST.3dshapes/JST_S2B-PH-SM4-TB.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Connectors_JST.3dshapes/JST_S2B-PH-SM4-TB.wrl
       (at (xyz -0.135 -0.17 0))
       (scale (xyz 0.05 0.05 0.05))
-      (rotate (xyz 0 0 0))
-    )
-  )
-
-  (module domotab:Switch_DPDT (layer F.Cu) (tedit 59365DC8) (tstamp 59338D12)
-    (at 134.5 92.25 180)
-    (path /5931334F)
-    (fp_text reference SW2 (at -0.149519 -1.241025 180) (layer F.SilkS)
-      (effects (font (size 0.7 0.7) (thickness 0.11)))
-    )
-    (fp_text value "OFF // ON" (at 0.25 -4.75 180) (layer F.SilkS)
-      (effects (font (size 0.7 0.7) (thickness 0.11)))
-    )
-    (fp_line (start -4 -2) (end 4 -2) (layer F.SilkS) (width 0.22098))
-    (fp_line (start 4 -2) (end 4 2) (layer F.SilkS) (width 0.22098))
-    (fp_line (start 4 2) (end -4 2) (layer F.SilkS) (width 0.22098))
-    (fp_line (start -4 2) (end -4 -2) (layer F.SilkS) (width 0.22098))
-    (pad "" np_thru_hole circle (at 1.5 0 180) (size 0.85 0.85) (drill 0.85) (layers *.Cu *.Mask F.SilkS))
-    (pad "" np_thru_hole circle (at -1.5 0 180) (size 0.85 0.85) (drill 0.85) (layers *.Cu *.Mask F.SilkS))
-    (pad 1 smd rect (at -2.5 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask)
-      (net 8 +3V3))
-    (pad 2 smd rect (at 0 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask)
-      (net 12 "Net-(P1-Pad1)"))
-    (pad 3 smd rect (at 2.5 -2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
-    (pad 4 smd rect (at -2.5 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
-    (pad 5 smd rect (at 0 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
-    (pad 6 smd rect (at 2.5 2.85 180) (size 1 1.2) (layers F.Cu F.Paste F.Mask))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Buttons_Switches_SMD.3dshapes/SW_CuK_JS202011SCQN_DPDT_Straight.wrl
-      (at (xyz -0.25 0.16 -0.09))
-      (scale (xyz 0.1 0.1 0.1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -568,7 +568,7 @@
       (net 2 PB3))
     (pad 2 smd rect (at 2.99974 0) (size 1.99898 1.6002) (layers F.Cu F.Paste F.Mask)
       (net 4 GND))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Buttons_Switches_SMD.3dshapes/DTSM-32S-B.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Buttons_Switches_SMD.3dshapes/DTSM-32S-B.wrl
       (at (xyz 0.14 -0.06 0))
       (scale (xyz 0.35 0.35 0.35))
       (rotate (xyz 0 0 -90))
@@ -596,7 +596,7 @@
       (net 8 +3V3))
     (pad 2 smd rect (at 0.44958 0 270) (size 0.39878 0.59944) (layers F.Cu F.Paste F.Mask)
       (net 4 GND))
-    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
+    (model C:/Users/Anderson69s/Dropbox/Boulot/Finis/Kicad/KiCAD_3D/Capacitors_SMD.3dshapes/C_0402.wrl
       (at (xyz 0 0 0.002))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))

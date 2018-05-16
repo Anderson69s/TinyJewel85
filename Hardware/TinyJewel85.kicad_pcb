@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.6)
+(kicad_pcb (version 4) (host pcbnew 4.0.7)
 
   (general
     (links 30)
     (no_connects 0)
-    (area 127.751551 70.251551 163.748449 106.248449)
+    (area 120.25 54.25 173.500001 116.000001)
     (thickness 1.6)
     (drawings 12)
     (tracks 99)
@@ -86,7 +86,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory C:/Users/Anderson69s/Desktop/))
+      (outputdirectory /Users/Anderson69s/Desktop/))
   )
 
   (net 0 "")
@@ -136,6 +136,7 @@
   (module domotab:Switch_DPDT (layer F.Cu) (tedit 59365DC8) (tstamp 59338D12)
     (at 134.5 92.25 180)
     (path /5931334F)
+    (attr smd)
     (fp_text reference SW2 (at -0.149519 -1.241025 180) (layer F.SilkS)
       (effects (font (size 0.7 0.7) (thickness 0.11)))
     )
