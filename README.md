@@ -20,4 +20,4 @@ Add ATTINY85 board to Arduino IDE
 
 ### Installing
 
-A step by step tutorial is on my site : https://anderson69s.com/2017/08/03/tinyjewel85/
+A step by step tutorial is on my site : https://atelierdumaker.com/portfolio/tinyjewel85/
